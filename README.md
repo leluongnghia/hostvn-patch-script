@@ -10,15 +10,15 @@ Script tự động sửa lỗi và cấu hình tối ưu cho VPS sử dụng **
 ## Hướng dẫn sử dụng
 
 ### Cài đặt tự động (Khuyến nghị)
-Chạy lệnh sau với quyền root:
+Chạy lệnh sau:
 ```bash
-sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh)
+curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh | sudo bash
 ```
 *Script sẽ tự động quét toàn bộ website trên VPS và áp dụng bản vá cho tất cả.*
 
 Hoặc nếu muốn chạy riêng cho 1 domain:
 ```bash
-sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh) yourdomain.com
+curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh | sudo bash -s -- yourdomain.com
 ```
 - Reload Nginx.
 
@@ -49,7 +49,7 @@ Nếu bạn muốn tăng tốc độ database cho WordPress/WooCommerce, hãy c�
 
 **Cách chạy nhanh:**
 ```bash
-sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/install_redis.sh)
+curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/install_redis.sh | sudo bash
 ```
 *Script sẽ tự động cài `redis-server` và `php-redis` extension.*
 
