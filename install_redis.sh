@@ -27,6 +27,10 @@ apt-get install redis-server -y
 # Cau hinh Redis co ban (doi giam sat systemd)
 sed -i 's/^supervised no/supervised systemd/' /etc/redis/redis.conf
 
+# Cau hinh Unix Socket (Tang toc do Redis)
+sed -i 's/^# unixsocket /unixsocket /' /etc/redis/redis.conf
+sed -i 's/^# unixsocketperm /unixsocketperm /' /etc/redis/redis.conf
+
 # Restart Redis
 systemctl restart redis.service
 systemctl enable redis.service
