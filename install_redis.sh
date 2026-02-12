@@ -50,6 +50,12 @@ echo "[5/5] Cai dat menu quan ly Redis..."
 curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/redis_manager.sh -o /usr/local/bin/redis-manager
 chmod +x /usr/local/bin/redis-manager
 
+# 6. Patch Menu HostVN (Optional)
+echo "[6/6] Cap nhat menu HostVN..."
+curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_menu.sh -o /tmp/patch_menu.sh
+bash /tmp/patch_menu.sh
+rm /tmp/patch_menu.sh
+
 echo "========================================================"
 echo "   HOAN TAT! Redis da duoc cai dat."
 echo "   - Redis Status: $(systemctl is-active redis-server)"

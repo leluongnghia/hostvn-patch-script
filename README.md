@@ -52,12 +52,12 @@ sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch
 ```
 *Script sẽ tự động cài `redis-server` và `php-redis` extension.*
 
-**Quản lý Redis (Menu):**
-Sau khi cài đặt xong, bạn chỉ cần gõ lệnh sau để mở menu quản lý:
-```bash
-redis-manager
-```
-*(Menu cho phép: Start, Stop, Restart, Xem trạng thái, Bật/Tắt khởi động cùng VPS)*
+**Quản lý Redis (Menu tích hợp):**
+Script đã tự động thêm vào menu gốc của HostVN.
+1. Gõ `hostvn` hoặc `menu` để mở menu.
+2. Chọn số **10. Redis Manager** để quản lý.
+
+*(Hoặc gõ lệnh tắt `redis-manager`)*
 
 ---
 
