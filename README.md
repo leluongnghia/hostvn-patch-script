@@ -1,25 +1,25 @@
-# HostVN VPS Patch Script
+# HostVN VPS Patch Script By Antigravity
 
 Script tự động sửa lỗi và cấu hình tối ưu cho VPS sử dụng **HostVN Scripts**.
 
 ## Chức năng
 1.  **Sửa lỗi 520 (Cloudflare):** Do cấu hình Nginx chặn nhầm file `.html` (trong `map.conf`).
-2.  **Cấu hình FastCGI Cache:** Tự động tạo thư mục cache và thêm cấu hình cache cho domain cụ thể.
-3.  **Hỗ trợ nhiều domain:** Có thể chạy cho bất kỳ domain nào trên VPS.
+2.  **Cấu hình FastCGI Cache:** Tự động quét và bật cache cho **TẤT CẢ** các domain đang hoạt động trên VPS.
+3.  **Tự động hóa hoàn toàn:** Không cần nhập tên miền thủ công.
 
 ## Hướng dẫn sử dụng
 
-### Cách 1: Chạy trực tiếp từ GitHub (Khuyên dùng)
-Bạn chỉ cần copy và chạy 1 lệnh duy nhất dưới đây trên VPS (quyền root):
+### Cách 1: Chạy trực tiếp từ GitHub (Nhanh nhất)
+Copy và chạy lệnh sau trên VPS (quyền root):
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh) [ten_mien]
+bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh)
 ```
-*Ví dụ:*
-```bash
-bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh) azevent.vn
-```
-*(Nếu không nhập tên miền, script sẽ hỏi bạn sau khi chạy)*
+
+Script sẽ tự động:
+- Quét toàn bộ file cấu hình trong `/etc/nginx/sites-enabled/`.
+- Áp dụng sửa lỗi và cấu hình cache cho từng domain.
+- Reload Nginx.
 
 ---
 
@@ -28,8 +28,6 @@ bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-scri
 1. **Tải script về:**
    ```bash
    wget https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh
-   # Hoặc dùng curl
-   curl -O https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh
    ```
 
 2. **Cấp quyền thực thi:**
@@ -39,13 +37,12 @@ bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-scri
 
 3. **Chạy script:**
    ```bash
-   sudo ./patch_hostvn.sh [ten_mien]
+   sudo ./patch_hostvn.sh
    ```
-   *Ví dụ:* `sudo ./patch_hostvn.sh congtytochucsukienaz.com`
 
 ---
 
 ## Lưu ý
 - Script cần được chạy với quyền **root**.
 - Script sẽ tự động backup các file cấu hình (`.bak`) trước khi sửa đổi.
-- Nếu bạn gặp lỗi, hãy kiểm tra lại file backup hoặc log của Nginx.
+- Script sẽ kiểm tra xem cache đã được bật chưa trước khi thêm cấu hình mới (tránh trùng lặp).
