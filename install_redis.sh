@@ -45,8 +45,16 @@ systemctl list-units --type=service | grep php | grep fpm | awk '{print $1}' | x
 # Reload Nginx
 systemctl reload nginx
 
+# 5. Cai dat Redis Manager Menu
+echo "[5/5] Cai dat menu quan ly Redis..."
+curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/redis_manager.sh -o /usr/local/bin/redis-manager
+chmod +x /usr/local/bin/redis-manager
+
 echo "========================================================"
 echo "   HOAN TAT! Redis da duoc cai dat."
 echo "   - Redis Status: $(systemctl is-active redis-server)"
 echo "   - PHP Redis: Da cai dat."
+echo ""
+echo "   👉 Go lenh sau de quan ly Redis (Start/Stop/Restart):"
+echo "      redis-manager"
 echo "========================================================"
