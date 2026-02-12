@@ -9,16 +9,17 @@ Script tự động sửa lỗi và cấu hình tối ưu cho VPS sử dụng **
 
 ## Hướng dẫn sử dụng
 
-### Cách 1: Chạy trực tiếp từ GitHub (Nhanh nhất)
-Copy và chạy lệnh sau trên VPS (quyền root):
-
+### Cài đặt tự động (Khuyến nghị)
+Chạy lệnh sau với quyền root:
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh)
+sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh)
 ```
+*Script sẽ tự động quét toàn bộ website trên VPS và áp dụng bản vá cho tất cả.*
 
-Script sẽ tự động:
-- Quét toàn bộ file cấu hình trong `/etc/nginx/sites-enabled/`.
-- Áp dụng sửa lỗi và cấu hình cache cho từng domain.
+Hoặc nếu muốn chạy riêng cho 1 domain:
+```bash
+sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/patch_hostvn.sh) yourdomain.com
+```
 - Reload Nginx.
 
 ---
