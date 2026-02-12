@@ -42,6 +42,18 @@ Script sẽ tự động:
 
 ---
 
+## Cài đặt Redis (Tùy chọn) for Object Cache
+
+Nếu bạn muốn tăng tốc độ database cho WordPress/WooCommerce, hãy cài thêm Redis:
+
+**Cách chạy nhanh:**
+```bash
+sudo bash <(curl -sL https://raw.githubusercontent.com/leluongnghia/hostvn-patch-script/main/install_redis.sh)
+```
+*Script sẽ tự động cài `redis-server` và `php-redis` extension.*
+
+---
+
 ## Lưu ý
 - Script cần được chạy với quyền **root**.
 - Script sẽ tự động backup các file cấu hình (`.bak`) trước khi sửa đổi.
